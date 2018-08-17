@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <h1>BrokeCloud</h1>
+    <a href=" <%= bands_url %> ">Home</a>
+    <% if current_user.nil? %>
+      <a href="<%= new_sessions_url %>">Sign in</a>
+      <a href="<%= new_user_url %>">Sign up</a>
+    <% else %>
+      <p>Logged in as <%= current_user.email %></p>
+      <form action="<%= sessions_url %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <%= auth_token %>
+        <input type="submit" value="logout">
+      </form>
+    <% end %>
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

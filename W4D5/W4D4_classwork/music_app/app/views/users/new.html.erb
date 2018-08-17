@@ -1,0 +1,27 @@
+<h1>New User</h1>
+
+<% if flash.now[:errors] %>
+  <% flash.now[:errors].each do |error| %>
+  <p><%= puts "#{error}" %><br /></p>
+  <% end %>
+<% end %>
+
+<form action="<%= users_url %>" method="post">
+  <%= auth_token %>
+  <label for="user_email">User Name</label>
+  <input type="text"
+    name="user[email]"
+    id="user_email"
+    value="">
+  <br>
+
+  <label for="user_password">Password</label>
+  <input type="password"
+    name="user[password]"
+    id="user_password"
+    value="">
+  <br>
+
+  <label for="create_account">Create Account</label>
+  <input type="submit" id="create_account">
+</form>

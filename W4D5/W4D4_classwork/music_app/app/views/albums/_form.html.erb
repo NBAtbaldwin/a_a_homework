@@ -1,0 +1,41 @@
+<h1><%= action == :edit ? "Edit an existing album" : "Create a new album for #{band.name}" %></h1>
+
+<% if action == :edit %>
+  <% action_url = album_url(album)%>
+<% else %>
+  <% action_url = albums_url %>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+  <%= auth_token %>
+
+  <label for="band">Band</label>
+  <select id="band" name="album[band_id]">
+    <option disabled <%= album.band_id ? "" : "selected"%>>-- Please Select --</option>
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>" <%= album.band.id == band.id ? "selected" : ""%>><%= band.name %></option>
+    <% end %>
+  </select>
+
+  <label for="album_title">Album title</label>
+  <input type="text"
+    name="album[title]"
+    id="album_title"
+    value="<%= album.title %>">
+  <br>
+
+  <label for="year">Year</label>
+  <input id="year" type="text" name="album[year]" value="<%= album.year %>">
+
+  <% Album::ALBUM_TYPES.each do |opt| %>
+    <label>
+      <input type="radio" name="album[album_type]" value="<%= album.album_type %>"<%= "checked" if album.album_type == opt %>>
+      <%= opt %>
+    </label>
+  <% end %>
+
+  <input type="submit" value="<%= action == :edit ? 'Update album' : 'Create album' %>">
+</form>

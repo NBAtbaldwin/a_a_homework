@@ -1,0 +1,30 @@
+
+.content {
+  background-color: white;
+  width: 900px;
+  margin: 0 auto;
+  border: 1px solid #cccccc;
+}
+
+
+.content-sidebar {
+  float: left;
+  width: 200px;
+  padding: 20px;
+}
+
+.content-main {
+  float: left;
+  width: 620px;
+  padding: 20px;
+}
+
+.content h1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.content p {
+
+}

@@ -1,0 +1,36 @@
+/* PHASE 4: Footer */
+
+.footer {
+  display: block;
+  width: 870px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #aaaaaa;
+  background-color: white;
+  padding: 20px 10px 20px 20px;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+}
+
+.footer-copy {
+  float: left;
+}
+
+.footer-links {
+  float: right;
+}
+
+.footer-links > li {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer a {
+
+}
+
+.footer a:hover {
+
+}
